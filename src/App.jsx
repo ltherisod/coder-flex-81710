@@ -2,6 +2,8 @@
 import Navbar from "./components/Navbar"
 import './App.css'
 import ItemListContainer from "./components/ItemListContainer"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import NavbarBS from "./components/NavbarBS";
 
 function App() {
 
@@ -9,7 +11,8 @@ function App() {
   return (
     <>
     {/* PRIMER PRE ENTREGA */}
-      <Navbar/>
+      {/* <Navbar/> */}
+      <NavbarBS/>
       <ItemListContainer saludo='Bienvenido a mi app'/>
     {/* CODIGO DE EJEMPLO */}
       {/* <BotonMultiuso label='Boton UNO' apagado={false} style='boton-uno'>
