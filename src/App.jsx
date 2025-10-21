@@ -6,6 +6,7 @@ import ItemCount from './components/ItemCount';
 import FetchCountry from './examples/FetchCountry';
 import ApiComponent from './examples/ApiComponent';
 import withLogging from './hoc/withLogging';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 function App() {
 
@@ -16,12 +17,13 @@ console.log('App')
   return (
     <>
       <NavbarBS/>
-      {/* <ItemListContainer saludo='Bienvenido a mi app'/> */}
+      <ItemListContainer saludo='Bienvenido a mi app'/>
+      <ItemDetailContainer/>
       {/* <FetchCountry/> */}
       {/* <ApiComponent/> */}
       {/* <ComponenteConHoc/> */}
       {/* <ItemCount stock={7}/> */}
-      <ContadorConHoc/>
+      {/* <ContadorConHoc/> */}
     </>
   )
 }
