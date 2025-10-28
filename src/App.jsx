@@ -2,29 +2,25 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from "./components/ItemListContainer"
 import NavbarBS from "./components/NavbarBS";
-import ItemCount from './components/ItemCount';
-import FetchCountry from './examples/FetchCountry';
-import ApiComponent from './examples/ApiComponent';
-import withLogging from './hoc/withLogging';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Error from './components/Error';
+// import FetchCountry from './examples/FetchCountry'
 
 function App() {
 
-  //utilizacion del HOC
-  const ComponenteConHoc = withLogging(ApiComponent )
-  const ContadorConHoc = withLogging(ItemCount)
-console.log('App')
   return (
-    <>
+    <BrowserRouter>
       <NavbarBS/>
-      <ItemListContainer saludo='Bienvenido a mi app'/>
-      <ItemDetailContainer/>
-      {/* <FetchCountry/> */}
-      {/* <ApiComponent/> */}
-      {/* <ComponenteConHoc/> */}
-      {/* <ItemCount stock={7}/> */}
-      {/* <ContadorConHoc/> */}
-    </>
+      <Routes>
+        {/* <Route path='/' element={<Home saludo='Bienvenido a mi app'/>}/>
+        <Route path='/productos' element={<ItemListContainer saludo='Bienvenido a mi app'/>}/> */}
+        <Route path='/' element={<ItemListContainer saludo='Bienvenido a mi app'/>}/>
+        <Route path='/category/:type' element={<ItemListContainer saludo='Bienvenido a la categoria: '/>}/>
+        <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+        <Route path='*' element={<Error/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
