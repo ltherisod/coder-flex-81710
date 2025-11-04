@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock, onAdd}) => {
 const [count, setCount]= useState(1)
-const [compra, setCompra]= useState(false)
+
 
 const sumar = ()=>{
     if(count < stock){
@@ -17,28 +17,9 @@ const restar = ()=>{
     }
 }
 const ejecutarCompra = ()=>{
-    setCompra(!compra)
+    onAdd(count)
 }
 console.log('ItemCount')
-
-//EJEMPLOS DE USEEFFECTS
-
-//se ejecuta siempre
-useEffect(()=>{
-    console.log('me ejecuto siempre!')
-})
-
-//se ejecuta una sola vez
-useEffect(()=>{
-    console.log('me ejecuto cuando se monta el componente')
-},[])
-    
-//a la escucha de un cambio
-useEffect(()=>{
-    if(compra !== false){
-        console.log('se ejecuta cuando monta el componente y siempre que compra cambie', compra)
-    }
-},[compra])
 
   return (
     <>
@@ -47,7 +28,7 @@ useEffect(()=>{
         <span className='btn'>{count}</span>
         <button className='btn btn-success' onClick={sumar}>+</button>
     </div>
-    <button className='btn btn-primary' onClick={ejecutarCompra}>Comprar</button>
+    <button className='btn btn-primary' onClick={ejecutarCompra} disabled={count === 0 || stock === 0}>Comprar</button>
     </>
   )
 }

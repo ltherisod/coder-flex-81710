@@ -5,21 +5,24 @@ import NavbarBS from "./components/NavbarBS";
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Error from './components/Error';
-// import FetchCountry from './examples/FetchCountry'
+import { CartProvider } from './context/CartContext';
+import CartContainer from './components/CartContainer';
+
 
 function App() {
 
   return (
     <BrowserRouter>
+      <CartProvider>
       <NavbarBS/>
       <Routes>
-        {/* <Route path='/' element={<Home saludo='Bienvenido a mi app'/>}/>
-        <Route path='/productos' element={<ItemListContainer saludo='Bienvenido a mi app'/>}/> */}
         <Route path='/' element={<ItemListContainer saludo='Bienvenido a mi app'/>}/>
         <Route path='/category/:type' element={<ItemListContainer saludo='Bienvenido a la categoria: '/>}/>
         <Route path='/item/:id' element={<ItemDetailContainer/>}/>
+        <Route path='/cart' element={<CartContainer/>}/>
         <Route path='*' element={<Error/>}/>
       </Routes>
+      </CartProvider>
     </BrowserRouter>
   )
 }
