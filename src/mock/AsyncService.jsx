@@ -1,15 +1,16 @@
-const productos = [
-    {
-        // id:'01', no lo pongo se genera dinamico de firebase
-        name:'Random 1',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
-        stock:25,
-        price: 25000,
-        img:'https://picsum.photos/200',
-        category:'nuevos'
-    },
+export const productos = [
+    //SACAMOS EL PROD QUE YA SUBIMOS MANUAL A FIREBASE
+    // {
+    //     // id:'01', no lo pongo se genera dinamico de firebase
+    //     name:'Random 1',
+    //     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
+    //     stock:25,
+    //     price: 25000,
+    //     img:'https://picsum.photos/200',
+    //     category:'nuevos'
+    // },
      {
-        id:'02',
+        // id:'02',
         name:'Random 2',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
         stock:15,
@@ -18,7 +19,7 @@ const productos = [
         category:'mas vendidos'
     },
   {
-        id:'03',
+        // id:'03',
         name:'Random 3',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
         stock:13,
@@ -27,7 +28,7 @@ const productos = [
         category:'mas vendidos'
     },
      {
-        id:'04',
+        // id:'04',
         name:'Random 4',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam rerum at, assumenda enim quae nulla.',
         stock:5,

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { getProductos } from "../mock/AsyncService"
+import { getProductos, productos } from "../mock/AsyncService"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
 import Input from "../examples/Input"
 import LoaderComponent from "./LoaderComponent"
-import {collection, getDocs, where, query} from 'firebase/firestore'
+import {collection, getDocs, where, query, addDoc} from 'firebase/firestore'
 import {db} from '../service/firebase'
 
 const ItemListContainer = (props)=>{
@@ -57,9 +57,17 @@ const ItemListContainer = (props)=>{
     // },[type])
 
     // console.log(data, 'estado')
+    //se usa una vez y despues SE BORRA!!!
+    // const subirData = ()=>{
+    //     console.log('subiendo data!!!!')
+    //     const prodSubir = collection(db, 'productos')
+    //     productos.map((prod)=> addDoc(prodSubir, prod))
+    // }
     
     return(
         <>
+        {/* SE USA UNA SOLA VEZ Y SE BORRA!!!! */}
+        {/* <button onClick={subirData}>SUBIR DATA</button> */}
         {
             loader 
             ? <LoaderComponent/>
