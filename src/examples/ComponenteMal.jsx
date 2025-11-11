@@ -1,9 +1,9 @@
 import React from 'react'
 
-const componenteMal = () => {
+const ComponenteMal = () => {
   return (
     <div>componenteMal</div>
   )
 }
 
-export default componenteMal
+export default ComponenteMal
