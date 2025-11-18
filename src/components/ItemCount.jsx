@@ -23,12 +23,20 @@ console.log('ItemCount')
 
   return (
     <>
+    {
+        stock > 0 
+        ? <>
     <div>
         <button className='btn btn-danger' onClick={restar} disabled={count === 0}>-</button>
         <span className='btn'>{count}</span>
         <button className='btn btn-success' onClick={sumar}>+</button>
     </div>
     <button className='btn btn-primary' onClick={ejecutarCompra} disabled={count === 0 || stock === 0}>Comprar</button>
+    </>
+    : <p>Lo sentimos, por el momento no hay unidades disponibles</p>
+
+   
+    }
     </>
   )
 }

@@ -1,15 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 //creamos el contexto y lo exportamos para su uso en los componentes
 export const CartContext = createContext()
 
-
+const carritoLS = JSON.parse(localStorage.getItem('carrito')) || []
 export const CartProvider = ({children})=>{
-    const [cart, setCart]=useState([])
-    // const valorDelContexto={
-        // cart
-    // }
+    const [cart, setCart]=useState(carritoLS)
 
+
+    useEffect(()=>{
+        localStorage.setItem('carrito', JSON.stringify(cart))
+    },[cart])
     //todas las funciones/funcionalidades que modifiquen el carrito
     //agregu un item al carrito 
     const addItem = (item, qty) =>{
@@ -75,8 +76,19 @@ export const CartProvider = ({children})=>{
         return cart.reduce((acc, prod)=> acc += prod.quantity,0)
     }
 
+    const itemQuantity = (id)=>{
+        const itemInCart = cart.find((prod)=> prod.id === id)
+
+        if(itemInCart){
+            return itemInCart.quantity
+        }else{
+            //no existe
+            return 0
+        }
+    }
+
     return(
-        <CartContext.Provider value={{cart, addItem, removeItem, clear, total, cartQuantity}}>
+        <CartContext.Provider value={{cart, addItem, removeItem, clear, total, cartQuantity, itemQuantity}}>
             {children}
         </CartContext.Provider>
     )
